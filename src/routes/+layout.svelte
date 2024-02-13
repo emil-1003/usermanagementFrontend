@@ -1,9 +1,15 @@
 <script>
     import "../app.css";
-    import Header from '../components/Header.svelte';
-    import Footer from '../components/Footer.svelte';
+    import Header from '../lib/Header.svelte';
+    import Footer from '../lib/Footer.svelte';
 </script>
+
+<svelte:head>
+	<title>Usermanagement</title>
+</svelte:head>
   
 <Header />
-<slot />
-<Footer />
+<main>
+    <slot />
+</main>
+<Footer year="2024" domain="Usermanagement.dk" name="Emil Storgaard" />
