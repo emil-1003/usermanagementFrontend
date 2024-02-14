@@ -8,4 +8,6 @@
 
 {#if $page.data.user}
     <h1>Welcome: {$page.data.user.email}</h1>
+    <h2>Role id: {$page.data.user.role_id}</h2>
 {/if}
+

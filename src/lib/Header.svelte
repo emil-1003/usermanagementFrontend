@@ -18,7 +18,7 @@ function setCurrentPage(page) {
     <nav class="bg-white border-red-900 px-4 lg:px-6 py-2.5">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a on:click={() => setCurrentPage('Home')} href="/" class="flex items-center">
-                <img src="favicon.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+                <img src="../favicon.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
                 <span class="self-center text-xl font-semibold whitespace-nowrap">Usermanagement</span>
             </a>
             <div class="flex items-center lg:order-2">
@@ -47,7 +47,7 @@ function setCurrentPage(page) {
                         <a on:click={() => setCurrentPage('Home')} href="/" class={`block py-2 pr-4 pl-3 ${currentPage === 'Home' ? 'text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700' : 'text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700' } lg:p-0`}>Home</a>
                     </li>
                     <li>
-                        <a on:click={() => setCurrentPage('Page')} href="/page" class={`block py-2 pr-4 pl-3 ${currentPage === 'Page' ? 'text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700' : 'text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700' } lg:p-0`}>Page</a>
+                        <a on:click={() => setCurrentPage('Users')} href="/users" class={`block py-2 pr-4 pl-3 ${currentPage === 'Users' ? 'text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700' : 'text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700' } lg:p-0`}>Users</a>
                     </li>
                 </ul>
             </div>
