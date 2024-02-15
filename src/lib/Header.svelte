@@ -1,6 +1,8 @@
 <script>
     import { page } from '$app/stores'
 
+    console.log(page)
+
     let isMenuOpen = false;
 
     function toggleMenu() {
@@ -46,9 +48,17 @@ function setCurrentPage(page) {
                     <li>
                         <a on:click={() => setCurrentPage('Home')} href="/" class={`block py-2 pr-4 pl-3 ${currentPage === 'Home' ? 'text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700' : 'text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700' } lg:p-0`}>Home</a>
                     </li>
+                    <!-- Logged in -->
+                    {#if $page.data.user}
+                    {#if $page.data.user.role_id == 1}
                     <li>
                         <a on:click={() => setCurrentPage('Users')} href="/users" class={`block py-2 pr-4 pl-3 ${currentPage === 'Users' ? 'text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700' : 'text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700' } lg:p-0`}>Users</a>
                     </li>
+                    {/if}
+                    <li>
+                        <a on:click={() => setCurrentPage('User')} href="/users/{$page.data.user.uid}" class={`block py-2 pr-4 pl-3 ${currentPage === 'User' ? 'text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700' : 'text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700' } lg:p-0`}>User</a>
+                    </li>
+                    {/if}
                 </ul>
             </div>
         </div>

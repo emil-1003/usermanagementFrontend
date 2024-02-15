@@ -50,4 +50,33 @@ const edit = async ({ locals, request, params }) => {
 	throw redirect(303, `/users/${params.id}`)
 }
 
-export const actions = { edit }
+const newpassword = async ({ locals, request, params }) => {
+	const data = await request.formData()
+    const newPassword = data.get('new-password')
+
+	if (typeof newPassword !== 'string' || !newPassword) {
+		return fail(400, { invalid: true });
+	}
+
+	// MAKE PUT NEW PASSWORD REQUEST
+	const response = await fetch(`http://localhost:8585/api/v1/auth/new/password/${params.id}`, {
+		method: 'PUT',
+		headers: {
+		  'Content-Type': 'application/json',
+		  'Authorization': `Bearer ${locals.user.jwt}`
+		},
+		body: JSON.stringify({ "newpassword": newPassword })
+	});
+	
+	console.log("url:", `http://localhost:8585/api/v1/auth/new/password/${params.id}`)
+	console.log("status:", response.status)
+
+	if (!response.ok) {
+		console.log(response.status)
+		return fail(400, { user: true });
+	}
+
+	throw redirect(303, `/`)
+}
+
+export const actions = { edit, newpassword }
